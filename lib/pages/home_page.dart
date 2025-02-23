@@ -12,10 +12,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Container(
+              padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
               height: _deviceHeight,
               width: _deviceWidth,
               color: Colors.red,
-              child: _text())),
+              child: _destinationDropDownWidget())),
     );
   }
 
@@ -39,5 +40,21 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _destinationDropDownWidget() {
+    List<DropdownMenuItem<String>> _items = ['muje', 'wow'].map(
+      (e) {
+        return DropdownMenuItem(
+          child: Text(e),
+          value: e,
+        );
+      },
+    ).toList();
+    return Container(
+        child: DropdownButton(
+      onChanged: (_) {},
+      items: _items,
+    ));
   }
 }
