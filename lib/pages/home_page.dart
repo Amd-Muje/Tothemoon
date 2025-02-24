@@ -11,12 +11,22 @@ class HomePage extends StatelessWidget {
     _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-          child: Container(
-              padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-              height: _deviceHeight,
-              width: _deviceWidth,
-              color: Colors.red,
-              child: _destinationDropDownWidget())),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
+          height: _deviceHeight,
+          width: _deviceWidth,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _text(),
+              _logo(),
+              _destinationDropDownWidget(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -25,8 +35,8 @@ class HomePage extends StatelessWidget {
       "Hello World",
       style: TextStyle(
         color: Colors.white,
-        fontSize: 69,
-        fontWeight: FontWeight.bold,
+        fontSize: 70,
+        fontWeight: FontWeight.w800,
       ),
     );
   }
