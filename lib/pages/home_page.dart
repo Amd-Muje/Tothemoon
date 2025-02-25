@@ -29,16 +29,16 @@ class HomePage extends StatelessWidget {
 
   Widget _text() {
     return const Text(
-      "Hello World",
+      "ToThMoon",
       style: TextStyle(
-        color: Colors.white,
+        color: Color.fromARGB(255, 255, 255, 255),
         fontSize: 70,
         fontWeight: FontWeight.w800,
       ),
     );
   }
 
-  Widget _logo() {
+  Widget _logo() {aaaaaaaaaaaaaa
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -59,6 +59,7 @@ class HomePage extends StatelessWidget {
         children: [
           _destinationDropDownWidget(),
           _travellersInformationWidget(),
+          _rideButton()
         ],
       ),
     );
@@ -85,6 +86,23 @@ class HomePage extends StatelessWidget {
           width: _deviceWidth * 0.40,
         ),
       ],
+    );
+  }
+
+  Widget _rideButton() {
+    return Container(
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: MaterialButton(
+        onPressed: () {},
+        child: const Text(
+          "Book Ride",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
     );
   }
 }
