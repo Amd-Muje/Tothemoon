@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _logo() {aaaaaaaaaaaaaa
+  Widget _logo() {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -91,6 +91,7 @@ class HomePage extends StatelessWidget {
 
   Widget _rideButton() {
     return Container(
+      margin: EdgeInsets.only(bottom: _deviceHeight * 0.01),
       width: _deviceWidth,
       decoration: BoxDecoration(
         color: Colors.white,
