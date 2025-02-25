@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tothemoon/widgets/custom_dropdown_button.dart';
 
 class HomePage extends StatelessWidget {
   late double _deviceHeight, _deviceWidth;
@@ -19,11 +20,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _text(),
-              _logo(),
-              _destinationDropDownWidget(),
-            ],
+            children: [_text(), _bookRideWidget()],
           ),
         ),
       ),
@@ -52,30 +49,42 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _destinationDropDownWidget() {
-    List<String> _items = ['mujesukamakan nasi', 'wow makan orang'];
+  Widget _bookRideWidget() {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-        width: _deviceWidth,
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(38, 38, 38, 1.0),
+      height: _deviceHeight * 0.25,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _destinationDropDownWidget(),
+          _travellersInformationWidget(),
+        ],
+      ),
+    );
+  }
+
+  Widget _destinationDropDownWidget() {
+    return CustomDropdownButtonClass(
+        values: const ['mujesukamakan nasi', 'wow makan orang'],
+        width: _deviceWidth);
+  }
+
+  Widget _travellersInformationWidget() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CustomDropdownButtonClass(
+          values: ['1', '2', '3'],
+          width: _deviceWidth * 0.40,
         ),
-        child: DropdownButton(
-            value: _items.first,
-            onChanged: (_) {},
-            items: _items.map((e) {
-              return DropdownMenuItem(
-                value: e,
-                child: Text(e),
-              );
-            }).toList(),
-            underline: Container(),
-            dropdownColor: Color.fromRGBO(38, 38, 38, 1.0),
-            borderRadius: BorderRadius.circular(10),
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            )));
+        CustomDropdownButtonClass(
+          values: ['Economy', 'Business', 'Luxury'],
+          width: _deviceWidth * 0.40,
+        ),
+      ],
+    );
   }
 }
