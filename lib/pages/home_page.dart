@@ -16,11 +16,19 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
           height: _deviceHeight,
           width: _deviceWidth,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_text(), _bookRideWidget()],
+          child: Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [_text(), _bookRideWidget()],
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                child:_logo(),
+              )
+            ],
           ),
         ),
       ),
@@ -29,10 +37,10 @@ class HomePage extends StatelessWidget {
 
   Widget _text() {
     return const Text(
-      "ToThMoon",
+      "ToTheMoon",
       style: TextStyle(
         color: Color.fromARGB(255, 255, 255, 255),
-        fontSize: 70,
+        fontSize: 60,
         fontWeight: FontWeight.w800,
       ),
     );
@@ -40,10 +48,12 @@ class HomePage extends StatelessWidget {
 
   Widget _logo() {
     return Container(
+      height: _deviceHeight,
+      width: _deviceWidth ,
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.contain,
-          image: AssetImage("assets/images/Logo.png"),
+          image: AssetImage("assets/images/astronaut.png"),
         ),
       ),
     );
